@@ -14,7 +14,9 @@
   </head>
   <header>
     <div class="navbar-container">
-      <div class="logo">A. J. Curtis Photography</div>
+      <a href="WPHtml.html" class="nav-center-link">
+        <div class="nav-center">A. J. Curtis Photography</div>
+      </a>
       <button class="menu-toggle">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -58,7 +60,9 @@
       </ul>
 
       <!-- Center -->
-      <div class="nav-center">A. J. Curtis Photography</div>
+      <a href="WPHtml.html" class="nav-center-link">
+        <div class="nav-center">A. J. Curtis Photography</div>
+      </a>
 
       <!-- Right Side -->
       <ul class="nav-right">
@@ -138,7 +142,7 @@
         <div class="product-details">
           <h1 class="product-title">THE PHOTO ART SHOP</h1>
           <h2 class="product-subtitle">HÔTEL COSTES</h2>
-          <p class="product-price">$111.00</p>
+          <p class="product-price">$<span id="current-price">111.00</span></p>
           <p class="product-photographer">Hôtel Costes - Photographer, Jesper Hedennam</p>
           <p class="product-description">Hôtel Costes.</p>
           
@@ -169,18 +173,18 @@
           <div class="product-options">
             <h3>Select Size:</h3>
             <div class="size-options">
-              <div class="size-row">
-                <button class="size-option">30x40 cm</button>
-                <button class="size-option">30x40 cm WHITE BORDER</button>
-              </div>
-              <div class="size-row">
-                <button class="size-option">50x70 cm</button>
-                <button class="size-option">50x70 cm WHITE BORDER</button>
-              </div>
-              <div class="size-row">
-                <button class="size-option">70x100 cm</button>
-                <button class="size-option">70x100 cm WHITE BORDER</button>
-              </div>
+                <div class="size-row">
+                  <button class="size-option" data-price="89.00">30x40 cm</button>
+                  <button class="size-option" data-price="99.00">30x40 cm WHITE BORDER</button>
+                </div>
+                <div class="size-row">
+                  <button class="size-option" data-price="111.00">50x70 cm</button>
+                  <button class="size-option" data-price="121.00">50x70 cm WHITE BORDER</button>
+                </div>
+                <div class="size-row">
+                  <button class="size-option" data-price="149.00">70x100 cm</button>
+                  <button class="size-option" data-price="159.00">70x100 cm WHITE BORDER</button>
+                </div>
             </div>
 
             <div class="quantity-selector">
@@ -197,6 +201,30 @@
         </div>
       </div>
     </section>
+
+    <section class="related-products">
+        <h2 class="section-title">You May Also Like</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <img src="../assets/img2.jpg" alt="Nature Series">
+            <h3>Nature Series</h3>
+            <p class="price">$89.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="../assets/img3.jpg" alt="Urban Landscape">
+            <h3>Urban Landscape</h3>
+            <p class="price">$99.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="../assets/img4.jpg" alt="Abstract Collection">
+            <h3>Abstract Collection</h3>
+            <p class="price">$129.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </section>
 
     <!-- Footer Section -->
     <footer class="footer">

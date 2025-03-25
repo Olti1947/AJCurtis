@@ -90,26 +90,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let quantity = 1;
 
-  // Update quantity display
   function updateQuantity() {
     quantityDisplay.textContent = quantity;
   }
 
-  // Minus button click handler
-  minusBtn.addEventListener('click', function() {
-    if (quantity > 1) {
-      quantity--;
+  if (minusBtn && plusBtn && quantityDisplay) {
+    minusBtn.addEventListener('click', function() {
+      if (quantity > 1) {
+        quantity--;
+        updateQuantity();
+      }
+    });
+
+    plusBtn.addEventListener('click', function() {
+      quantity++;
       updateQuantity();
-    }
-  });
+    });
+  }
 
-  // Plus button click handler
-  plusBtn.addEventListener('click', function() {
-    quantity++;
-    updateQuantity();
-  });
-
-  // Size selection functionality
+  // Size selection and price update functionality
   const sizeOptions = document.querySelectorAll('.size-option');
   sizeOptions.forEach(option => {
     option.addEventListener('click', function() {
@@ -117,6 +116,25 @@ document.addEventListener("DOMContentLoaded", function() {
       sizeOptions.forEach(opt => opt.classList.remove('active'));
       // Add active class to clicked option
       this.classList.add('active');
+      
+      // Update price
+      const newPrice = this.getAttribute('data-price');
+      document.getElementById('current-price').textContent = newPrice;
+    });
+  });
+
+  // Set default selected size (50x70 cm)
+  const defaultSize = document.querySelector('.size-option[data-price="111.00"]');
+  if (defaultSize) {
+    defaultSize.classList.add('active');
+  }
+
+  // Related products add to cart functionality
+  document.querySelectorAll('.product-card .add-to-cart-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const productName = this.closest('.product-card').querySelector('h3').textContent;
+      const productPrice = this.closest('.product-card').querySelector('.price').textContent;
+      alert(`Added ${productName} (${productPrice}) to cart`);
     });
   });
 });
