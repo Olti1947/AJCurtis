@@ -1,0 +1,647 @@
+/* Custom font */
+@font-face {
+  font-family: "shzc";
+  src: url("path/to/your/font/shzc.woff2") format("woff2"),
+    /* Adjust the font path */ url("path/to/your/font/shzc.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General styles */
+body {
+  margin: 0;
+  font-family: "shzc", Arial, sans-serif; /* Use the custom font */
+  background-color: #1e1e1e; /* Dark gray background */
+  color: #f5f5f5; /* Light gray text */
+}
+
+/* Base styles for the navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #2c2c2c !important; /* Transparent background */
+  color: #ffffff; /* White text */
+  position: fixed; /* Fixed bar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays above other elements */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  border: none !important; /* Remove borders */
+  outline: none !important; /* Remove outlines */
+  box-shadow: none !important; /* Remove shadows */
+}
+
+/* Hover effect on the navigation bar */
+.navbar:hover {
+  background-color: #2c2c2c !important; /* Dark gray background on hover */
+}
+
+/* Change text and icon color on hover in the navigation bar */
+.navbar:hover,
+.navbar:hover a,
+.navbar:hover button,
+.navbar:hover .nav-center,
+.navbar:hover .dropdown .submenu a,
+.navbar:hover svg {
+  color: #ffffff !important; /* White text on hover */
+  fill: #ffffff !important; /* White icons on hover */
+}
+/* Hover effect on the navigation bar */
+.navbar:hover {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Slightly opaque white on hover */
+  color: #1e1e1e; /* Dark gray text on hover */
+}
+
+/* Left and right sides */
+.nav-left,
+.nav-right {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center; /* Vertically align items */
+}
+
+.nav-left li,
+.nav-right li {
+  margin: 0 1rem;
+  position: relative;
+  display: flex;
+  align-items: center; /* Vertically align items */
+}
+
+/* Styles for menu links */
+.navbar a {
+  color: inherit; /* Inherit the text color (white by default) */
+  text-decoration: none; /* Remove underline from links */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+  display: flex;
+  align-items: center; /* Vertically align items */
+}
+
+/* Change link text color on hover in the navigation bar --------*/
+.navbar:hover a {
+  color: #f5f5f5; /* Dark gray text on hover */
+}
+
+/* Center */
+.nav-center {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Dropdown menus */
+.dropdown .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #2c2c2c; /* Charcoal background */
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0;
+  min-width: 150px;
+  z-index: 1000;
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for submenu */
+}
+
+/* Show submenus on hover */
+.dropdown:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  margin: 0.5rem 0;
+}
+
+.submenu a {
+  color: #f5f5f5; /* Light gray text in submenu */
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.submenu a:hover {
+  background-color: #1e1e1e; /* Dark gray background on hover */
+}
+
+/* Search bar */
+.search-bar {
+  display: none;
+  padding: 1rem;
+  background-color: #2c2c2c; /* Charcoal background */
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  z-index: 999;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #f5f5f5; /* Light gray border */
+  border-radius: 4px;
+  background-color: #1e1e1e; /* Dark gray background */
+  color: #f5f5f5; /* Light gray text */
+}
+
+.search-bar.visible {
+  display: block;
+}
+
+/* Buttons */
+button {
+  background: none;
+  border: none;
+  color: inherit; /* Inherit the text color */
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: center;
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Styles for SVGs inside buttons */
+button svg {
+  width: 24px; /* Icon size */
+  height: 24px;
+  fill: currentColor; /* Inherit the text color */
+  transition: fill 0.3s ease; /* Smooth transition for color */
+}
+
+/* Carousel styles */
+.carousel {
+  width: 100%;
+  height: 60vh; /* Carousel height (adjust as needed) */
+  overflow: hidden;
+  position: relative;
+  margin-top: 0; /* Remove negative margin */
+  z-index: 1; /* Ensure the carousel is behind the nav */
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%; /* Ensure the inner container takes full height */
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%; /* Take up 100% of the container height */
+  object-fit: cover; /* Fit the image without distortion */
+  display: block;
+}
+
+/* Styles for overlay text */
+.carousel-caption {
+  position: absolute;
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  padding: 1rem; /* Internal padding */
+  border-radius: 8px; /* Rounded corners */
+  max-width: 300px; /* Maximum text width */
+}
+
+.carousel-caption h1 {
+  color: #ffffff; /* White text for the title */
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0; /* Bottom margin */
+}
+
+.carousel-caption p {
+  color: #f5f5f5; /* Light gray text for the description */
+  font-size: 1rem;
+  margin: 0; /* No margin */
+}
+
+/* Ensure the nav overlaps the carousel */
+.navbar {
+  position: fixed; /* Change to fixed to keep the nav always visible */
+  top: 0; /* Place it at the top */
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the nav is above the carousel */
+  background-color: transparent; /* Transparent background */
+  color: #ffffff; /* White text */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+  padding: 1rem; /* Add some padding */
+}
+
+/* Hover effect on the navigation bar */
+.navbar:hover {
+  background-color: #ffffff; /* White background */
+  color: #1e1e1e; /* Dark gray text */
+}
+
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c2c2c; /* Charcoal background */
+  padding: 10px 20px;
+}
+
+.logo {
+  color: #ffffff; /* White text */
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Menu toggle button (hamburger icon) */
+.menu-toggle {
+  display: none; /* Hide the button by default */
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001; /* Ensure it's above other elements */
+}
+
+.menu-toggle .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #ffffff; /* White bars */
+}
+
+/* Navbar styling */
+.navbar {
+  padding: 10px 0;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar ul li {
+  display: inline-block;
+}
+
+.navbar ul li a {
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* Responsive design: Navbar moves into a dropdown style when screen width is less than 900px */
+@media screen and (max-width: 1000px) {
+  .navbar {
+    display: none; /* Hide the navbar by default */
+    flex-direction: column;
+    align-items: center;
+    position: absolute; /* Position it absolutely to avoid overlapping */
+    top: 60px; /* Adjust this value based on your header height */
+    left: 0;
+    width: 100%;
+    background-color: #2c2c2c; /* Charcoal background */
+    z-index: 1000; /* Ensure it's below the hamburger button */
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    text-align: center;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: flex; /* Show the button on small screens */
+  }
+
+  /* Show the navbar when it's toggled */
+  .navbar.visible {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .navbar-container {
+    display: none;
+  }
+
+  .hamburger-container {
+    display: none;
+  }
+}
+
+/* New Section: Image Categories */
+.image-categories {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 1rem; /* Space between images */
+  background-color: #2c2c2c; /* Charcoal background */
+}
+
+.category {
+  position: relative;
+  overflow: hidden;
+  flex: 1; /* Each category takes equal space */
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.category img {
+  width: 100%;
+  height: 300px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensure the image covers the area */
+  display: block;
+  transition: filter 0.3s ease; /* Smooth transition for the filter */
+}
+
+.category-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the title */
+  color: #ffffff; /* White text */
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.9; /* Slightly transparent by default */
+  transition: opacity 0.3s ease, font-size 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover Effects */
+.category:hover img {
+  filter: brightness(0.6); /* Darken the image on hover */
+}
+
+.category:hover .category-title {
+  opacity: 1; /* Make the text fully visible */
+  font-size: 1.8rem; /* Slightly enlarge the text */
+}
+
+.category:hover {
+  transform: scale(1.05); /* Slightly enlarge the category */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
+@media screen and (max-width: 600px) {
+  .image-categories {
+      flex-direction: column; /* Stack categories vertically on small screens */
+  }
+
+  .category {
+      margin-bottom: 1rem; /* Add space between stacked categories */
+  }
+}
+
+/* Featured This Month Section */
+.featured-section {
+  padding: 4rem 2rem; /* Add padding around the section */
+  background-color: #1e1e1e; /* Dark gray background */
+  text-align: center; /* Center-align the content */
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #d4af37; /* Gold color for the title */
+  margin-bottom: 2rem; /* Space below the title */
+}
+
+.featured-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; /* Space between products */
+  max-width: 1200px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the container */
+}
+
+.featured-product {
+  flex: 1; /* Each product takes equal space */
+  background-color: #2c2c2c; /* Charcoal background for products */
+  padding: 1.5rem;
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.featured-product:hover {
+  transform: translateY(-10px); /* Lift the product on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+}
+
+.product-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensure the image covers the area */
+  border-radius: 8px; /* Rounded corners for the image */
+}
+
+.product-title {
+  font-size: 1.5rem;
+  color: #ffffff; /* White text for the title */
+  margin: 1rem 0 0.5rem 0; /* Space above and below the title */
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #f5f5f5; /* Light gray for the description */
+  line-height: 1.5; /* Improve readability */
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 600px) {
+  .featured-container {
+    flex-direction: column; /* Stack products vertically on small screens */
+  }
+
+  .featured-product {
+    margin-bottom: 1.5rem; /* Add space between stacked products */
+  }
+
+  .section-title {
+    font-size: 2rem; /* Smaller font size for mobile */
+  }
+
+  .product-title {
+    font-size: 1.3rem; /* Smaller font size for mobile */
+  }
+
+  .product-description {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+}
+
+/* The Photographer Section */
+.photographer-section {
+  padding: 4rem 2rem; /* Add padding around the section */
+  background-color: #2c2c2c; /* Charcoal background */
+}
+
+.photographer-container {
+  max-width: 1200px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Space between image and text */
+}
+
+.photographer-image img {
+  width: 300px; /* Fixed width for the image */
+  height: 300px; /* Fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the area */
+  border-radius: 50%; /* Circular image */
+  border: 4px solid #d4af37; /* Gold border for elegance */
+}
+
+.photographer-details {
+  flex: 1; /* Take up remaining space */
+}
+
+.photographer-name {
+  font-size: 2.5rem;
+  color: #d4af37; /* Gold color for the name */
+  margin-bottom: 1rem; /* Space below the name */
+}
+
+.photographer-description {
+  font-size: 1.1rem;
+  line-height: 1.6; /* Improve readability */
+  color: #f5f5f5; /* Light gray for the description */
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+  .photographer-container {
+    flex-direction: column; /* Stack image and text vertically */
+    text-align: center; /* Center-align text */
+  }
+
+  .photographer-image img {
+    width: 200px; /* Smaller image for mobile */
+    height: 200px;
+  }
+
+  .photographer-name {
+    font-size: 2rem; /* Smaller font size for mobile */
+  }
+
+  .photographer-description {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+}
+
+/* Footer Section */
+.footer {
+  background-color: #1e1e1e; /* Dark gray background */
+  color: #f5f5f5; /* Light gray text */
+  padding: 3rem 2rem 1rem 2rem; /* Padding for the footer */
+  font-family: "shzc", Arial, sans-serif; /* Use your custom font */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the container */
+  gap: 2rem; /* Space between sections */
+}
+
+.footer-section {
+  flex: 1; /* Each section takes equal space */
+  margin-bottom: 2rem; /* Space below each section */
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  color: #d4af37; /* Gold color for titles */
+  margin-bottom: 1rem; /* Space below the title */
+}
+
+.footer-text {
+  font-size: 1rem;
+  line-height: 1.6; /* Improve readability */
+  color: #f5f5f5; /* Light gray text */
+}
+
+.footer-links {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem; /* Space between links */
+}
+
+.footer-links a {
+  color: #f5f5f5; /* Light gray text */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.footer-links a:hover {
+  color: #d4af37; /* Gold color on hover */
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem; /* Space between icons */
+}
+
+.social-icons a {
+  color: #f5f5f5; /* Light gray text */
+  font-size: 1.5rem; /* Icon size */
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.social-icons a:hover {
+  color: #d4af37; /* Gold color on hover */
+}
+
+.copyright {
+  text-align: center; /* Center-align the copyright text */
+  padding: 1rem 0; /* Padding for the copyright section */
+  border-top: 1px solid #2c2c2c; /* Add a subtle border */
+  margin-top: 2rem; /* Space above the copyright section */
+  font-size: 0.9rem; /* Smaller font size */
+  color: #f5f5f5; /* Light gray text */
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Stack sections vertically on small screens */
+    text-align: center; /* Center-align text */
+  }
+
+  .social-icons {
+    justify-content: center; /* Center-align social icons */
+  }
+}
