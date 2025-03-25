@@ -81,3 +81,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", handleScroll);
 });
+
+// Quantity selector functionality
+document.addEventListener("DOMContentLoaded", function() {
+  const minusBtn = document.querySelector('.quantity-btn:first-child');
+  const plusBtn = document.querySelector('.quantity-btn:last-child');
+  const quantityDisplay = document.querySelector('.quantity');
+
+  let quantity = 1;
+
+  // Update quantity display
+  function updateQuantity() {
+    quantityDisplay.textContent = quantity;
+  }
+
+  // Minus button click handler
+  minusBtn.addEventListener('click', function() {
+    if (quantity > 1) {
+      quantity--;
+      updateQuantity();
+    }
+  });
+
+  // Plus button click handler
+  plusBtn.addEventListener('click', function() {
+    quantity++;
+    updateQuantity();
+  });
+
+  // Size selection functionality
+  const sizeOptions = document.querySelectorAll('.size-option');
+  sizeOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      // Remove active class from all options
+      sizeOptions.forEach(opt => opt.classList.remove('active'));
+      // Add active class to clicked option
+      this.classList.add('active');
+    });
+  });
+});
