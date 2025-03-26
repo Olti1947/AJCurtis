@@ -104,3 +104,29 @@ padding: 20px;
         gap: 30px;
     }
   }
+
+  
+.nav-center-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-center-link:hover .nav-center {
+    color: #d4af37;
+    transition: color 0.3s ease;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.logo-link:hover .logo {
+    color: #d4af37; /* Gold color on hover */
+    transition: color 0.3s ease;
+}
+
+.navbar-container a {
+    text-decoration: none;
+}
