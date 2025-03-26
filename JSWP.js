@@ -138,3 +138,97 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+// Products page functionality
+document.addEventListener("DOMContentLoaded", function() {
+
+  // Get URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryParam = urlParams.get('category') || 'all';
+  
+  // Initialize page
+  if (document.querySelector('.products-grid')) {
+    // Set initial category filter
+    document.getElementById('category-select').value = categoryParam;
+    
+    // Render products
+    renderProducts(filterProducts(products, categoryParam));
+    
+    // Add event listeners
+    document.getElementById('category-select').addEventListener('change', function() {
+      const category = this.value;
+      renderProducts(filterProducts(products, category));
+    });
+    
+    document.getElementById('sort-select').addEventListener('change', function() {
+      const sortBy = this.value;
+      const currentCategory = document.getElementById('category-select').value;
+      const filteredProducts = filterProducts(products, currentCategory);
+      renderProducts(sortProducts(filteredProducts, sortBy));
+    });
+  }
+  
+  // Filter products by category
+  function filterProducts(products, category) {
+    if (category === 'all') return products;
+    return products.filter(product => product.category === category);
+  }
+  
+  // Sort products
+  function sortProducts(products, sortBy) {
+    switch(sortBy) {
+      case 'featured':
+        return products.sort((a, b) => a.id - b.id);
+      case 'best-selling':
+        // In a real app, you'd sort by sales data
+        return products.sort((a, b) => b.id - a.id);
+      case 'a-z':
+        return products.sort((a, b) => a.title.localeCompare(b.title));
+      case 'z-a':
+        return products.sort((a, b) => b.title.localeCompare(a.title));
+      case 'low-high':
+        return products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      case 'high-low':
+        return products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      case 'old-new':
+        return products.sort((a, b) => a.id - b.id);
+      case 'new-old':
+        return products.sort((a, b) => b.id - a.id);
+      default:
+        return products;
+    }
+  }
+  
+  // Render products to the grid
+  function renderProducts(products) {
+    const productsGrid = document.querySelector('.products-grid');
+    productsGrid.innerHTML = '';
+    
+    if (products.length === 0) {
+      productsGrid.innerHTML = '<p class="no-products">No products found in this category.</p>';
+      return;
+    }
+    
+    products.forEach(product => {
+      const productCard = document.createElement('div');
+      productCard.className = 'product-card';
+      productCard.innerHTML = `
+        <img src="${product.image}" alt="${product.title}" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">${product.title}</h3>
+          <p class="product-price">$${product.price}</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      `;
+      productsGrid.appendChild(productCard);
+    });
+    
+    // Add event listeners to add-to-cart buttons
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+        alert(`Added ${productTitle} to cart`);
+      });
+    });
+  }
+});
