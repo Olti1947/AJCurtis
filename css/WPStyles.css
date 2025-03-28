@@ -203,7 +203,7 @@ button svg {
 /* Carousel styles */
 .carousel {
   width: 100%;
-  height: 60vh; /* Carousel height (adjust as needed) */
+  height: 100vh; /* Carousel height (adjust as needed) */
   overflow: hidden;
   position: relative;
   margin-top: 0; /* Remove negative margin */
@@ -432,6 +432,15 @@ button svg {
       margin-bottom: 1rem; /* Add space between stacked categories */
   }
 }
+.category-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Keeps text color */
+  flex: 1; /* Ensures each link takes equal space */
+}
+
+.category-link .category {
+  width: 100%; /* Forces all categories to have the same width */
+}
 
 /* Featured This Month Section */
 .featured-section {
@@ -509,6 +518,13 @@ button svg {
   }
 }
 
+.featured-product-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Keeps text color */
+  flex: 1; /* Ensures each link takes equal space */
+}
+
+
 /* The Photographer Section */
 .photographer-section {
   padding: 4rem 2rem; /* Add padding around the section */
@@ -540,6 +556,13 @@ button svg {
   color: #d4af37; /* Gold color for the name */
   margin-bottom: 1rem; /* Space below the name */
 }
+
+.portfolio-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Keeps text color */
+  flex: 1; /* Ensures each link takes equal space */
+}
+
 
 .photographer-description {
   font-size: 1.1rem;
