@@ -7,6 +7,10 @@
   font-style: normal;
 }
 
+
+html {
+  scroll-behavior: smooth;  /* Smooth page scrolling */
+}
 /* General styles */
 body {
   margin: 0;
@@ -16,6 +20,7 @@ body {
   overflow-x: hidden;
 }
 
+
 /* Base styles for the navigation bar */
 .navbar {
   display: flex;
@@ -23,7 +28,6 @@ body {
   align-items: center;
   padding: 1rem;
   background-color: #2c2c2c !important; /* Transparent background */
-  color: #ffffff; /* White text */
   position: fixed; /* Fixed bar at the top */
   top: 0;
   left: 0;
@@ -37,30 +41,65 @@ body {
 
 /* Hover effect on the navigation bar */
 .navbar:hover {
-  background-color: #2c2c2c !important; /* Dark gray background on hover */
+  background-color: #1e1e1e !important; /* Dark gray background on hover */
 }
 
-/* Change text and icon color on hover in the navigation bar */
-.navbar:hover,
-.navbar:hover a,
-.navbar:hover button,
-.navbar:hover .nav-center,
-.navbar:hover .dropdown .submenu a,
-.navbar:hover svg {
-  color: #ffffff !important; /* White text on hover */
-  fill: #ffffff !important; /* White icons on hover */
-}
-/* Hover effect on the navigation bar */
-.navbar:hover {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.9
-  ); /* Slightly opaque white on hover */
-  color: #1e1e1e; /* Dark gray text on hover */
+/* ========== GOLD HOVER STYLES FOR ENTIRE NAVBAR ========== */
+
+/* 1. Main navbar links */
+.nav-left > li > a:hover,
+.nav-right > li > a:hover,
+.nav-left > li.dropdown > a:hover,
+.nav-right > li.dropdown > a:hover {
+  color: #d4af37 !important;
 }
 
+/* 2. Center logo */
+.nav-center-link:hover .nav-center {
+  color: #d4af37 !important;
+}
+
+/* 3. Submenu items */
+.nav-left .submenu li a:hover,
+.nav-right .submenu li a:hover,
+.dropdown .submenu a:hover {
+  color: #d4af37 !important;
+  background-color: #1e1e1e !important; /* Maintains dark background */
+}
+
+/* 4. SVG buttons (search, cart, user) */
+#search-btn:hover,
+#cart-btn:hover,
+#user-btn:hover {
+  color: #d4af37 !important;
+}
+
+/* 5. SVG icons inside buttons */
+#search-btn:hover svg,
+#cart-btn:hover svg,
+#user-btn:hover svg {
+  fill: #d4af37 !important;
+}
+
+/* 6. Smooth transitions for all elements */
+.navbar a,
+.navbar button,
+.nav-center,
+.dropdown .submenu a,
+button svg {
+  transition: color 0.3s ease, fill 0.3s ease;
+}
+
+.dropdown .submenu a:hover {
+  background-color: #1e1e1e !important;
+  color: #d4af37 !important;
+}
+
+/* Nested submenu (Categories) */
+.dropdown .submenu .dropdown .submenu a:hover {
+  background-color: #1e1e1e !important;
+  color: #d4af37 !important;
+}
 /* Left and right sides */
 .nav-left,
 .nav-right {
@@ -81,16 +120,11 @@ body {
 
 /* Styles for menu links */
 .navbar a {
-  color: inherit; /* Inherit the text color (white by default) */
+  color: white; /* Inherit the text color (white by default) this is for the center of the nav */
   text-decoration: none; /* Remove underline from links */
   transition: color 0.3s ease; /* Smooth transition for text color */
   display: flex;
   align-items: center; /* Vertically align items */
-}
-
-/* Change link text color on hover in the navigation bar --------*/
-.navbar:hover a {
-  color: #f5f5f5; /* Dark gray text on hover */
 }
 
 /* Center */
@@ -99,14 +133,13 @@ body {
   font-weight: bold;
   transition: color 0.3s ease; /* Smooth transition for text color */
 }
-
 /* Dropdown menus */
 .dropdown .submenu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #2c2c2c; /* Charcoal background */
+  background-color: #1e1e1e; /* Charcoal background */
   list-style: none;
   padding: 0.5rem;
   margin: 0;
@@ -116,18 +149,14 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
   transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for submenu */
 }
-
-/* Show submenus on hover */
-.dropdown:hover .submenu {
-  display: block;
-}
-
+/* Vertical spacing for submenu list items */
 .submenu li {
   margin: 0.5rem 0;
+  padding: 0; /* Remove default padding */
 }
 
 .submenu a {
-  color: #f5f5f5; /* Light gray text in submenu */
+  color: #f5f5f5;
   text-decoration: none;
   display: block;
   padding: 0.5rem;
@@ -135,8 +164,55 @@ body {
 }
 
 .submenu a:hover {
-  background-color: #1e1e1e; /* Dark gray background on hover */
+  background-color: #1e1e1e; 
 }
+
+
+/* Show submenus on hover */
+.dropdown:hover > .submenu {
+  display: block;
+}
+
+/* Submenu inside "Categories" */
+.dropdown .submenu .dropdown {
+  position: relative;
+}
+
+.dropdown .submenu .dropdown .submenu {
+  display: none; /* Ocultar por defecto */
+  position: absolute;
+  top: 0;
+  left: 100%; /* Aparece a la derecha */
+  margin-left: 0px;
+  background-color: #1e1e1e;
+  list-style: none;
+  padding: 0.5rem;
+  min-width: 150px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Show submenu when hovering over "Categories" */
+.dropdown .submenu .dropdown:hover > .submenu {
+  display: block;
+}
+/* Ensure elements appear in a column */
+.dropdown .submenu .dropdown .submenu li {
+  width: 100%;
+}
+
+.dropdown .submenu .dropdown .submenu a {
+  display: block;
+  padding: 0.5rem;
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown .submenu .dropdown .submenu a:hover {
+  background-color: #1e1e1e;
+}
+
 
 /* Search bar */
 .search-bar {
@@ -178,7 +254,7 @@ body {
 button {
   background: none;
   border: none;
-  color: inherit; /* Inherit the text color */
+  color: white; /* Inherit the text color */
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0.5rem;
@@ -389,7 +465,7 @@ button svg {
 
 .category img {
   width: 100%;
-  height: 300px; /* Fixed height for consistency */
+  height: 350px; /* Fixed height for consistency */
   object-fit: cover; /* Ensure the image covers the area */
   display: block;
   transition: filter 0.3s ease; /* Smooth transition for the filter */
@@ -444,7 +520,7 @@ button svg {
 
 /* Featured This Month Section */
 .featured-section {
-  padding: 4rem 2rem; /* Add padding around the section */
+  padding: 2rem 2rem; /* Add padding around the section */
   background-color: #1e1e1e; /* Dark gray background */
   text-align: center; /* Center-align the content */
 }
@@ -458,43 +534,63 @@ button svg {
 .featured-container {
   display: flex;
   justify-content: space-between;
-  gap: 2rem; /* Space between products */
-  max-width: 1200px; /* Limit the width for better readability */
-  margin: 0 auto; /* Center the container */
+  gap: 2rem; /* Space between product cards */
+  max-width: 1200px; /* Maximum container width */
+  margin: 0 auto; /* Center the container horizontally */
+  align-items: flex-start; /* Align items at the top */
 }
 
 .featured-product {
-  flex: 1; /* Each product takes equal space */
-  background-color: #2c2c2c; /* Charcoal background for products */
-  padding: 1.5rem;
+  flex: 1; /* Distribute space equally among products */
+  background-color: #2c2c2c; /* Dark background color */
+  padding: 1.5rem; /* Inner spacing */
   border-radius: 8px; /* Rounded corners */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  display: flex;
+  flex-direction: column;
+  height: 350px; /* Fixed height for all product cards */
+  overflow: hidden; /* Hide overflowing content */
 }
 
 .featured-product:hover {
-  transform: translateY(-10px); /* Lift the product on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
 }
 
 .product-image {
-  width: 100%;
-  height: 200px; /* Fixed height for consistency */
-  object-fit: cover; /* Ensure the image covers the area */
-  border-radius: 8px; /* Rounded corners for the image */
+  width: 100%; /* Full width of container */
+  height: 200px; /* Fixed image height */
+  object-fit: cover; /* Crop image to fit dimensions */
+  border-radius: 8px; /* Rounded corners for images */
+  flex-shrink: 0; /* Prevent image from shrinking */
 }
 
 .product-title {
-  font-size: 1.5rem;
-  color: #ffffff; /* White text for the title */
-  margin: 1rem 0 0.5rem 0; /* Space above and below the title */
+  font-size: 1.5rem; /* Title font size */
+  color: #ffffff; /* White text color */
+  margin: 1rem 0 0.5rem 0; /* Spacing around title */
+  flex-shrink: 0; /* Prevent title from shrinking */
 }
 
 .product-description {
-  font-size: 1rem;
-  color: #f5f5f5; /* Light gray for the description */
-  line-height: 1.5; /* Improve readability */
+  font-size: 1rem; /* Description font size */
+  color: #f5f5f5; /* Light gray text color */
+  line-height: 1.5; /* Comfortable line spacing */
+  overflow: hidden; /* Hide overflow */
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Limit to 5 lines of text */
+  -webkit-box-orient: vertical;
+  margin-bottom: 1rem; /* Bottom spacing */
 }
 
+/* Optional "Read more" button for long content */
+.read-more {
+  color: #d4af37; /* Gold color */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: auto; /* Push to bottom of container */
+  flex-shrink: 0; /* Prevent shrinking */
+  text-align: right; /* Right-aligned text */
+}
 /* Responsive Design for Mobile */
 @media screen and (max-width: 600px) {
   .featured-container {
