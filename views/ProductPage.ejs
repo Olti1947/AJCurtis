@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A. J. Curtis - Product</title>
+  <link rel="stylesheet" href="../css/WPStyles.css" />
+  <link rel="stylesheet" href="../css/ProductPage.css" />
+  <script defer src="/js/JSWP.js"></script>
+  <script defer src="/js/product.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <!-- Header Section -->
+    <%- include('navbar.ejs') %>
+
+  <!-- Product Section -->
+  <section class="product-section">
+    <div class="product-container">
+      <!-- Product Image -->
+      <div class="product-image-container">
+        <img id="product-image" src="" alt="" class="product-image">
+      </div>
+
+      <!-- Product Details -->
+      <div class="product-details">
+        <h1 id="product-title" class="product-title"></h1>
+        <h2 id="product-subtitle" class="product-subtitle"></h2>
+        <p id="product-price" class="product-price">$<span id="current-price"></span></p>
+        <p id="product-photographer" class="product-photographer"></p>
+        <p id="product-description" class="product-description"></p>
+        
+        <div class="product-info">
+          <p>High quality Giclée print on 265 gsm fine art photo paper</p>
+          <p>Giclée is an art printing process to achieve intense, saturated colors as well as a greater variety of depth and shades. In combination with the high quality fine art paper, the result is extraordinary, and will last for generations.</p>
+        </div>
+
+        <div class="product-specs">
+          <h3>Information</h3>
+          <ul>
+            <li>The art print is carefully packed in silk paper and shipped in a protective tube.</li>
+            <li>Fits standard frames.</li>
+            <li>Frame not included.</li>
+          </ul>
+
+          <h3>Shipping</h3>
+          <p>Worldwide shipping. Shipping cost calculated at checkout.</p>
+
+          <h3>Delivery</h3>
+          <ul>
+            <li>Denmark - We will deliver your purchase within 2-5 working days.</li>
+            <li>Europe - We will deliver your purchase within 3-8 working days.</li>
+            <li>Rest of the world - We will deliver your purchase within 5-10 working days.</li>
+          </ul>
+        </div>
+
+        <div class="product-options">
+          <h3>Select Size:</h3>
+          <div class="size-options">
+              <div class="size-row">
+                <button class="size-option" data-price="89.00">30x40 cm</button>
+                <button class="size-option" data-price="99.00">30x40 cm WHITE BORDER</button>
+              </div>
+              <div class="size-row">
+                <button class="size-option" data-price="111.00">50x70 cm</button>
+                <button class="size-option" data-price="121.00">50x70 cm WHITE BORDER</button>
+              </div>
+              <div class="size-row">
+                <button class="size-option" data-price="149.00">70x100 cm</button>
+                <button class="size-option" data-price="159.00">70x100 cm WHITE BORDER</button>
+              </div>
+          </div>
+
+          <div class="quantity-selector">
+            <button class="quantity-btn">-</button>
+            <span class="quantity">1</span>
+            <button class="quantity-btn">+</button>
+          </div>
+
+          <div class="action-buttons">
+            <button class="add-to-cart-btn">ADD TO CART</button>
+            <button class="buy-now-btn">Buy with <i class="fab fa-cc-paypal"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-products">
+      <h2 class="section-title">You May Also Like</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="../assets/img2.jpg" alt="Nature Series">
+          <h3>Nature Series</h3>
+          <p class="price">$89.00</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="../assets/img3.jpg" alt="Urban Landscape">
+          <h3>Urban Landscape</h3>
+          <p class="price">$99.00</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="../assets/img4.jpg" alt="Abstract Collection">
+          <h3>Abstract Collection</h3>
+          <p class="price">$129.00</p>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+  <!-- Footer Section -->
+  <footer class="footer"><%-include('footer.ejs')%></footer>
+</body>
+</html>

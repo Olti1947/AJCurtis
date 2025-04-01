@@ -18,15 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Cart functionality
   const cartBtn = document.getElementById("cart-btn");
-  cartBtn.addEventListener("click", function () {
-    alert("Shopping Cart: Here you can display the added products.");
-  });
-
   // User functionality
   const userBtn = document.getElementById("user-btn");
-  userBtn.addEventListener("click", function () {
-    alert("User: Here you can redirect to login or registration.");
-  });
 
   // Image carousel
   const carouselInner = document.querySelector(".carousel-inner");
