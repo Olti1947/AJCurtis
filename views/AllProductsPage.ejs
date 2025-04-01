@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A. J. Curtis - Products</title>
+  <link rel="stylesheet" href="/css/WPStyles.css" />
+  <link rel="stylesheet" href="/css/AllProductsPage.css" />
+  <script defer src="/js/JSWP.js"></script>
+  <script defer src="/js/products.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+  <!-- Header Section -->
+  <%- include('navbar.ejs') %>
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="products-container">
+      <div class="products-header">
+        <h1 class="section-title">Our Photographies</h1>
+        <div class="products-controls">
+          <div class="category-filter">
+            <span>Filter by:</span>
+            <select id="category-select">
+              <option value="all">All</option>
+              <option value="season">Season Arrivals</option>
+              <option value="popular">Most Popular</option>
+              <option value="urban">Urban</option>
+              <option value="nature">Nature</option>
+              <option value="portrait">Portrait</option>
+              <option value="abstract">Abstract</option>
+            </select>
+          </div>
+          <div class="sort-filter">
+            <span>Sort by:</span>
+            <select id="sort-select">
+              <option value="featured">Featured</option>
+              <option value="best-selling">Best selling</option>
+              <option value="a-z">Alphabetically, A-Z</option>
+              <option value="z-a">Alphabetically, Z-A</option>
+              <option value="low-high">Price, low to high</option>
+              <option value="high-low">Price, high to low</option>
+              <option value="old-new">Date, old to new</option>
+              <option value="new-old">Date, new to old</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        <!-- Products will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+  <!-- Footer Section-->
+  <footer class="footer"><%-include('footer.ejs')%></footer>
+</body>
+</html>
