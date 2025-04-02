@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/WPStyles.css" />
     <!-- Link to the CSS file -->
     <script defer src="/js/JSWP.js"></script>
+    <script defer src="/js/popup.js"></script>
     <!-- Link to the JavaScript file -->
     <link
       rel="stylesheet"
@@ -16,6 +17,26 @@
   <body>
     <!-- Header Section -->
     <%- include('navbar.ejs') %>
+
+      <!-- Pop-Up HTML -->
+      <div id="overlay"></div>
+
+      <div id="popup">
+        <div class="popup-content">
+          <div class="popup-left">
+            <img src="/assets/coupon-discount-icon.svg" alt="Discount Image">
+            <p class="label">DISCOUNT</p>
+          </div>
+          <div class="popup-right">
+            <button id="closePopup" class="close-btn">&times;</button>
+            <h2>Wait A Second !</h2>
+            <p class="subtitle">New customers get <strong>10 %</strong> discount on first booking</p>
+            <input type="text" placeholder="Enter Your Name">
+            <input type="email" placeholder="Enter Your E-mail Address">
+            <button class="cta-btn">Get Your Discount</button>
+          </div>
+        </div>
+      </div>
 
     <!-- Carousel Section -->
     <section class="carousel-section">

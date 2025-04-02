@@ -33,6 +33,10 @@ app.get('/loginpage', (req, res) => {
   res.render('LoginPage.ejs');
 });
 
+app.get('/faq', (req, res) => {
+  res.render('FAQPage.ejs');
+});
+
 app.post("/login" , (req, res) => {
   console.log(req.body);
   res.send('Login data received');
